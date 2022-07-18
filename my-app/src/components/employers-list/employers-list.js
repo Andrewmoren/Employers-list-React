@@ -1,7 +1,7 @@
 import EployersListItem from "../employers-list-item/employers-list-item";
 import "./employers-list.css";
 
-const Employerslist = ({ data, onDelete }) => {
+const Employerslist = ({ data, onDelete, onToggleProp }) => {
   const elements = data.map((item) => {
     const { id, ...itemsProps } = item;
     return (
@@ -9,6 +9,9 @@ const Employerslist = ({ data, onDelete }) => {
         key={id}
         {...itemsProps}
         onDelete={() => onDelete(id)}
+        onToggleProp={(e) =>
+          onToggleProp(id, e.currentTarget.getAttribute("data-toggle"))
+        }
       />
     );
   });
