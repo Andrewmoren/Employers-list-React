@@ -17,7 +17,7 @@ class App extends Component {
       ],
 
       term: "",
-      filter: "rise",
+      filter: "all",
     };
     this.maxId = 4;
   }
@@ -82,6 +82,8 @@ class App extends Component {
     }
   };
 
+  onFilterSelect = () => {};
+
   render() {
     const { data, term, filter } = this.state;
     const employees = this.state.data.length;
@@ -93,7 +95,7 @@ class App extends Component {
 
         <div className="search-panel">
           <SearchPanel onUpdateSearch={this.onUpdateSearch} />
-          <AppFilter />
+          <AppFilter filter={filter} />
         </div>
 
         <Employerslist
