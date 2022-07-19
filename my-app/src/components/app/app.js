@@ -82,7 +82,9 @@ class App extends Component {
     }
   };
 
-  onFilterSelect = () => {};
+  onFilterSelect = (filter) => {
+    this.setState({ filter });
+  };
 
   render() {
     const { data, term, filter } = this.state;
@@ -95,7 +97,7 @@ class App extends Component {
 
         <div className="search-panel">
           <SearchPanel onUpdateSearch={this.onUpdateSearch} />
-          <AppFilter filter={filter} />
+          <AppFilter filter={filter} onFilterSelect={this.onFilterSelect} />
         </div>
 
         <Employerslist
